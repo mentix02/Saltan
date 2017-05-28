@@ -1,0 +1,24 @@
+{% extends 'salt/base.html' %}
+{% load static %}
+{% block about_active %}active{% endblock %}
+{% block title %}About Us{% endblock %}
+{% block body %}<br>
+	<div class="container-fluid"><br><br>
+		<div class="jumbotron" style="background-image: url('https://pbs.twimg.com/profile_banners/3252525918/1482932477/1500x500')">
+			<h1 class="text-center">Saltan</h1>
+			<p class="text-center">
+				Welcome to <a id="the_brand" href="{% url 'salt:index' %}">Saltan</a>, an image board for you and the rest of the world.
+			</p>
+			<p class="text-center">
+				You can share photos and start discussions. This is called a <i>salt</i>.
+			</p>
+			<p class="text-center">
+				Alright, that's <font id="the_brand">cool</font>, how do I get started?
+			</p>
+			<p class="text-center">
+				Simple, <a class="text-success" href="{% url 'salt:register' %}">register</a> and start <a href="{% url 'salt:salts' %}">posting</a>!
+			</p>
+			<br><br><br><br>
+		</div>
+	</div>
+{% endblock %}

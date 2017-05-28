@@ -1,0 +1,26 @@
+{% extends 'salt/base.html' %}
+{% block people_active %}active{% endblock %}
+{% block title %}People{% endblock %}
+{% block body %}<br><br><br>
+<div class="container-fluid">
+		<div class="row">
+			{% for person in people reversed %}
+                    <div class="col-xs-11 col-md-2 col-sm-6">
+                        <div class="thumbnail">
+                            <a href="{% url 'salt:person' person.user.username %}">
+                                <img src="{{ person.profile_pic.url }}" class="img-responsive" width="250" alt="{{ salt.title }}">
+                            </a>
+                            <div class="caption">
+                                <h4 class="text-center"><a href="{% url 'salt:person' person.user.username %}">{{ person.user.username }}</a></h4>
+                                <h5 class="text-center">{{ person.user.first_name }} {{ person.user.last_name }}</h5>
+                            </div>
+                        </div>
+                    </div>
+			{% empty %}
+				<div class="col-xs-11 col-md-4 col-sm-6">
+					<h3>Seems a bit empty sweet...</h3>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+{% endblock %}

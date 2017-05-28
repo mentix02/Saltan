@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="shortcut icon" href="{% static 'favicon.ico' %}" />
+		<link rel="stylesheet" href="{% static 'salt/scss/base.css' %}">
+		<title>{% block title %}{% endblock %}</title>
+		<link rel="stylesheet" href="{% static 'salt/scss/bootstrap.min.css' %}" />
+		<script src="{% static 'salt/js/jquery-3.1.1.min.js' %}"></script>
+		<script src="{% static 'salt/js/bootstrap.min.js' %}"></script>
+		{% block head %}
+			
+		{% endblock %}
+	</head>
+	<body id="post_part">
+		<nav id="custom-bootstrap-menu" class="navbar navbar-default navbar-fixed-top" role="navigation">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="{% url 'salt:index' %}" id="the_brand">Saltan</a>
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder"><span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+				<div class="collapse navbar-collapse navbar-menubuilder">
+					<ul class="nav navbar-nav navbar-left">
+						<li class="{% block home_active %}{% endblock %}">
+							<a href="{% url 'salt:index' %}"><span class="glyphicon glyphicon-home"></span>&nbsp; Home</a>
+						</li>
+						<li class="{% block salt_active %}{% endblock %}">
+							<a href="{% url 'salt:salts' %}"><span class="glyphicon glyphicon-list-alt"></span>&nbsp; Salts</a>
+						</li>
+						<li class="{% block about_active %}{% endblock %}">
+							<a href="{% url 'salt:about' %}"><span class="glyphicon glyphicon-zoom-in"></span>&nbsp; About Us</a>
+						</li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li class="{% block people_active %}{% endblock %}">
+							<a href="{% url 'salt:people' %}"><span class="glyphicon glyphicon-globe"></span>&nbsp; People</a>
+						</li>
+						<li class="{% block profile_page %}{% endblock %}">
+							<a href="{% url 'salt:profile' %}"><span class="glyphicon glyphicon-user"></span>&nbsp; {{ request.user.username|title}}</a>
+						</li>
+						<li>
+							<a href="{% url 'salt:logout' %}"><span class="glyphicon glyphicon-off"></span>&nbsp; Logout</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav><br>
+
+		{% block body %}
+		{% csrf_token %}
+		{% endblock %}
+		<div class="navbar navbar-fixed-bottom">
+			<footer class="text-right">
+				Saltan 2017 &copy; &nbsp;  &nbsp;  &nbsp;
+			</footer>
+		</div>
+	</body>
+</html>

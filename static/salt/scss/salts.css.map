@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,SAAS;EACR,MAAM,EAAE,OAAO",
+"sources": ["salts.scss"],
+"names": [],
+"file": "salts.css"
+}

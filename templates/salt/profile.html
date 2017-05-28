@@ -1,0 +1,24 @@
+{% extends 'salt/base.html' %}
+{% block title %}{{ user.user.first_name }} {{ user.user.last_name }}{% endblock %}
+{% block profile_page %}active{% endblock %}
+{% block body %}<br><br><br>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-9 col-md-7">
+				<div align="center">
+					<a href="{{ user.profile_pic.url }}">
+						<img src="{{ user.profile_pic.url }}" class="img-responsive img-thumbnail">
+					</a>
+				</div>
+			</div>
+			<div align="center" class="cold-sm-6 col-md-2">
+				<h3>{{ user.user.first_name }} {{ user.user.last_name }}</h3>
+				<h4>{{ user.user.username }}</h4>
+				<h4><a href="mailto:{{ user.user.email }}"><small>{{ user.user.email }}</small></a></h4>
+				<a href="{% url 'salt:edit_profile' %}" class="btn btn-success">Edit Profile&nbsp; <span class="glyphicon glyphicon-pencil"></span></a>
+				<br><br>
+				<a href="{% url 'salt:deactivate' %}" class="btn btn-danger">Deactivate&nbsp; <span class="glyphicon glyphicon-alert"></span></a>
+			</div>
+		</div>
+	</div>
+{% endblock %}

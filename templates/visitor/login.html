@@ -1,0 +1,36 @@
+{% extends 'visitor/base.html' %}
+{% load static %}
+{% block title %}Saltan Login{% endblock %}
+{% block head %}
+	<link rel="stylesheet" href="{% static 'salt/scss/login.css' %}">
+{% endblock %}
+{% block login_active %}active{% endblock %}
+{% block body %}
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-6 col-md-4 col-md-offset-4">
+				<h1 class="text-center">Sign In</h1>
+				<div class="account-wall">
+					<img class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"
+						alt="">
+					<form action="{% url 'salt:login' %}" class="form-signin" method="post">
+					{% csrf_token %}
+					<input type="text" class="form-control" placeholder="Username" name="username" required autofocus>
+					<input type="password" class="form-control" placeholder="Password" name="password" required>
+					<button class="btn btn-lg btn-success btn-block" type="submit">
+						Sign in
+					</button><br>
+					{% if error %}
+						<div class="small">
+							<p class="text-danger"><b>Invalid Login</b></p>
+						</div>
+					{% endif %}
+					<label class="checkbox pull-left"><input type="checkbox" value="remember-me" checked>Remember me</label>
+					<a href="#" class="pull-right need-help">Need help? </a><span class="clearfix"></span>
+					</form>
+				</div>
+				<a href="{% url 'salt:register' %}" class="text-center new-account">New here? Create an account </a>
+			</div>
+		</div>
+	</div>
+{% endblock %}

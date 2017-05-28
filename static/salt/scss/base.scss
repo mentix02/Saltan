@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Satisfy');
+
+body{
+  font-family: 'Montserrat', sans-serif;
+  padding-bottom: 70px;
+}
+
+#the_brand{
+  font-family: 'Satisfy', cursive;
+  font-size: xx-large;
+}
+#post_part{
+  font-family: 'Montserrat', sans-serif;
+}
+
+$white_100: rgba(255, 255, 255, 1);
+$color_congress_blue_approx: rgba(8, 73, 146, 1);
+$white_93: rgba(255, 255, 255, 0.93);
+$color_indigo_approx: rgba(78, 94, 212, 1);
+$color_royal_blue_approx: rgba(62, 104, 231, 1);
+
+%extend_1 {
+	color: $white_93;
+	background-color: $color_congress_blue_approx;
+	background: linear-gradient(to bottom, $color_indigo_approx 0, $color_congress_blue_approx 100%);
+}
+
+#custom-bootstrap-menu.navbar-default {
+	font-size: 15.5px;
+	background-color: $color_congress_blue_approx;
+	border-bottom-width: 0;
+	.navbar-brand {
+		color: $white_100;
+	}
+	.navbar-nav {
+		> li > a {
+			color: $white_100;
+			background-color: $color_congress_blue_approx;
+			&:hover {
+				@extend %extend_1;
+			}
+			&:focus {
+				@extend %extend_1;
+			}
+		}
+		> .active > a {
+			color: $white_100;
+			background-color: $color_royal_blue_approx;
+			&:hover {
+				color: $white_100;
+				background-color: $color_royal_blue_approx;
+			}
+			&:focus {
+				color: $white_100;
+				background-color: $color_royal_blue_approx;
+			}
+		}
+	}
+	.navbar-toggle {
+		border-color: $color_royal_blue_approx;
+		&:hover {
+			background-color: $color_royal_blue_approx;
+			.icon-bar {
+				background-color: $color_congress_blue_approx;
+			}
+		}
+		&:focus {
+			background-color: $color_royal_blue_approx;
+			.icon-bar {
+				background-color: $color_congress_blue_approx;
+			}
+		}
+		.icon-bar {
+			background-color: $color_royal_blue_approx;
+		}
+	}
+}

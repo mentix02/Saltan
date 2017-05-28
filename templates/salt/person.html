@@ -1,0 +1,40 @@
+{% extends 'salt/base.html' %}
+{% block title %}{{ profile.user.first_name }} {{ profile.user.last_name }}{% endblock %}
+{% block head %}
+    <style type="text/css">
+        #something-generic{
+            cursor: pointer;
+        }
+    </style>
+{% endblock %}
+{% block profile_page %}active{% endblock %}
+{% block body %}<br><br><br>
+	<div class="container-fluid">
+		<div align="row">
+			<div class="col-sm-9 col-md-7">
+				<div align="center">
+					<a href="{{ profile.profile_pic.url }}">
+						<img src="{{ profile.profile_pic.url }}" class="img-responsive img-thumbnail">
+					</a>
+				</div>
+			</div>
+			<div align="center" class="cold-sm-6 col-md-2">
+				<h3>{{ profile.user.first_name }} {{ profile.user.last_name }}</h3>
+				<h4>{{ profile.user.username }}</h4>
+				<h4><a href="mailto:{{ profile.user.email }}"><small>{{ profile.user.email }}</small></a></h4>
+                {% if not profile.user.is_active %}
+                    <h4 class="text-danger"><strong>Deactivated!</strong>&nbsp;</h4>
+                    <span class="text-danger glyphicon glyphicon-alert"></span>
+                    <span id="something-generic" data-toggle="popover" data-placement="bottom" title="Info" data-content="This account has been deactivated by the user!" class="text-primary glyphicon glyphicon-info-sign"></span>
+                {% else %}
+                    <h3 class="text-success">Active</h3>
+                {% endif %}
+			</div>
+		</div>
+	</div>
+    <script>
+        $(document).ready(function(){
+            $('[data-toggle="popover"]').popover();
+        })
+    </script>
+{% endblock %}

@@ -1,0 +1,49 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat|Satisfy");
+body {
+  font-family: 'Montserrat', sans-serif;
+  padding-bottom: 70px; }
+
+#the_brand {
+  font-family: 'Satisfy', cursive;
+  font-size: xx-large; }
+
+#post_part {
+  font-family: 'Montserrat', sans-serif; }
+
+#custom-bootstrap-menu.navbar-default .navbar-nav > li > a:hover, #custom-bootstrap-menu.navbar-default .navbar-nav > li > a:focus {
+  color: rgba(255, 255, 255, 0.93);
+  background-color: #084992;
+  background: linear-gradient(to bottom, #4e5ed4 0, #084992 100%); }
+
+#custom-bootstrap-menu.navbar-default {
+  font-size: 15.5px;
+  background-color: #084992;
+  border-bottom-width: 0; }
+  #custom-bootstrap-menu.navbar-default .navbar-brand {
+    color: white; }
+  #custom-bootstrap-menu.navbar-default .navbar-nav > li > a {
+    color: white;
+    background-color: #084992; }
+  #custom-bootstrap-menu.navbar-default .navbar-nav > .active > a {
+    color: white;
+    background-color: #3e68e7; }
+    #custom-bootstrap-menu.navbar-default .navbar-nav > .active > a:hover {
+      color: white;
+      background-color: #3e68e7; }
+    #custom-bootstrap-menu.navbar-default .navbar-nav > .active > a:focus {
+      color: white;
+      background-color: #3e68e7; }
+  #custom-bootstrap-menu.navbar-default .navbar-toggle {
+    border-color: #3e68e7; }
+    #custom-bootstrap-menu.navbar-default .navbar-toggle:hover {
+      background-color: #3e68e7; }
+      #custom-bootstrap-menu.navbar-default .navbar-toggle:hover .icon-bar {
+        background-color: #084992; }
+    #custom-bootstrap-menu.navbar-default .navbar-toggle:focus {
+      background-color: #3e68e7; }
+      #custom-bootstrap-menu.navbar-default .navbar-toggle:focus .icon-bar {
+        background-color: #084992; }
+    #custom-bootstrap-menu.navbar-default .navbar-toggle .icon-bar {
+      background-color: #3e68e7; }
+
+/*# sourceMappingURL=base.css.map */

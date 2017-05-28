@@ -1,0 +1,38 @@
+{% extends 'salt/base.html' %}
+{% load static %}
+{% block title %}My Salts{% endblock %}
+{% block salt_active %}active{% endblock %}
+{% block head %}
+	<link rel="stylesheet" type="text/css" href="{% static 'salt/scss/salts.css' %}">
+	<script type="text/javascript" src="{% static 'salt/js/salts.js' %}"></script>		
+{% endblock %}
+{% block body %}<br><br>
+	<div class="container-fluid">
+		<h3>My Salts</h3>
+		<a href="{% url 'salt:add_salt' %}" class="btn btn-success">
+			Add Salt &nbsp; <span class="glyphicon glyphicon-plus"></span>
+		</a>
+		<br><br>
+		<div class="row">
+			{% for salt in salts reversed %}
+				<div class="col-xs-11 col-md-4 col-sm-6">
+					<div class="thumbnail">
+						<a href="{% url 'salt:detail' salt.pk %}">
+							<img src="{{ salt.image.url }}" class="img-responsive" alt="{{ salt.title }}">
+						</a>
+						<div class="caption">
+							<h4><a href="{% url 'salt:detail' salt.pk %}">{{ salt.title|title }}</a>
+							<br><small>By <a href="{% url 'salt:person' salt.creator.user.username %}">{{ salt.creator.user.username }}</a></small></h4>
+							<p>{{ salt.description|truncatewords:19 }} &nbsp;<small><a href="{% url 'salt:delete_salt' salt.pk %}"><span data-toggle="tooltip" data-placement="top" title="Delete Salt" id="point_me" class="glyphicon glyphicon-trash text-danger"></span></small></p>
+						</div>
+					</div>
+				</div>
+			{% empty %}
+				<div class="col-xs-11 col-md-4 col-sm-6">
+					<h3>Seems too sweet...</h3>
+					<h4>You've peppered no salts yet! </h4>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+{% endblock %}

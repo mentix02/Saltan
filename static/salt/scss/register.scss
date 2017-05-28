@@ -1,0 +1,18 @@
+//colors
+$color_yellow_green_approx: #c4e17f;
+$color_corn_field_approx: #f7fdca;
+$color_goldenrod_approx: #fecf71;
+$color_bittersweet_approx: #f0776c;
+$color_shocking_approx: #db9dbe;
+$color_light_wisteria_approx: #c49cde;
+$color_cornflower_blue_approx: #669ae1;
+$color_viking_approx: #62c2e4;
+
+.colorgraph {
+	height: 5px;
+	border-top: 0;
+	background: $color_yellow_green_approx;
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 5px;
+	background-image: linear-gradient(to right, $color_yellow_green_approx, $color_yellow_green_approx 12.5%, $color_corn_field_approx 12.5%, $color_corn_field_approx 25%, $color_goldenrod_approx 25%, $color_goldenrod_approx 37.5%, $color_bittersweet_approx 37.5%, $color_bittersweet_approx 50%, $color_shocking_approx 50%, $color_shocking_approx 62.5%, $color_light_wisteria_approx 62.5%, $color_light_wisteria_approx 75%, $color_cornflower_blue_approx 75%, $color_cornflower_blue_approx 87.5%, $color_viking_approx 87.5%, $color_viking_approx);
+}

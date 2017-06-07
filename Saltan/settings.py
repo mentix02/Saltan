@@ -17,7 +17,6 @@ INSTALLED_APPS = [
 	'django.contrib.staticfiles',
 	'salt.apps.SaltConfig',
 	'django_cleanup',
-	'rest_framework',
 ]
 
 MIDDLEWARE = [

@@ -20,7 +20,7 @@
 					<textarea rows="8" id="description" class="form-control" name="description" required></textarea>
 				</div>
 				<div class="form-group">
-					<h4><label>Image{% if error %}{{ error }}{% endif %}</label></h4>
+					<h4><label>Image</label></label></h4>
 			        <div class="input-group">
 			            <span class="input-group-btn">
 			                <span class="btn btn-default btn-file">
@@ -33,6 +33,7 @@
 				</div>
 				<button class="btn btn-success" type="submit">Submit &nbsp; Salt!</button><br><br>
 			</form>
+			{% if error %}<br><label class="text-danger">{{ error }}{% endif %}
 		</div><br><br>
 		<div class="col-md-5">
 			<div class="panel panel-default">

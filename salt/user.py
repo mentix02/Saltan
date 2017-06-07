@@ -30,9 +30,9 @@ class LoginView(View):
 	def post(self, request):
 		username = request.POST['username']
 		password = request.POST['password']
-
+		
 		user = authenticate(username=username, password=password)
-
+		print(type(user))
 		if user:
 			if user.is_active:
 				login(request, user)
@@ -92,7 +92,8 @@ class RegisterView(View):
 						login(request, the_user)
 						return redirect('salt:index')
 					else:
-						return render(request, self.template_name, {'error': "User has been deactivated! Can't register again!"})
+						return render(request, self.template_name, {'error': "User has been \
+							deactivated! Can't register again!"})
 				else:
 					return render(request, self.template_name, {'error': "Something went wrong! Sorry!"})
 

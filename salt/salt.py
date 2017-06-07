@@ -32,7 +32,11 @@ class AddSalt(View):
 		title = request.POST['title']
 		description = request.POST['description']
 		image = request.FILES['img']
-		image_type = image.split('.')[-1]
+		# print(image)
+		# print(type(image))
+		str_image = str(image)
+		image_type = str_image.split('.')[-1]
+		# print(image_type)
 		if image_type not in IMAGE_FILE_TYPES:
 			return render(request, str(self.template_name), {"error": 
 				"Image file type should be jpg, jpeg, gif or png!"})

@@ -31,6 +31,9 @@
 								</div>
 								<div class="form-group">
 									<button class="btn btn-success" type="submit">Add</button> as <a href="{% url 'salt:person' user.user.username %}">{{ user.user.username }}</a>
+									{% if error %}
+										<small class="text-danger">{{ error }}</small>
+									{% endif %}
 								</div>
 							</form>
 						</div>

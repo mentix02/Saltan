@@ -72,6 +72,17 @@ class SaltDetail(View):
 		user = Profile.objects.get(user=request.user)
 		salt = Salt.objects.get(pk=salt_id)
 		comment = request.POST['comment']
+		if len(comment) == 0:
+			user = Profile.objects.get(user=request.user)
+			salt = Salt.objects.get(pk=salt_id)
+			comments = Comment.objects.filter(salt=salt)
+			context = {
+				"salt": salt,
+				"comments": comments,
+				"user": user,
+				"error": "Can't have blank comments!",
+			}
+			return render(request, self.template_name, context)
 		the_comment = Comment(
 				user=user,
 				salt=salt,

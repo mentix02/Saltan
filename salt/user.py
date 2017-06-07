@@ -32,7 +32,6 @@ class LoginView(View):
 		password = request.POST['password']
 		
 		user = authenticate(username=username, password=password)
-		print(type(user))
 		if user:
 			if user.is_active:
 				login(request, user)

@@ -16,7 +16,7 @@ Registered users can upload images with some description and other registered us
 + Python
 + HTML5
 + JavaScript (jQuery)
-+ SCSS 
++ SCSS
 
 ### Contribute
 To get started with developing Saltan, run in terminal -
@@ -35,7 +35,8 @@ And you're done! Enjoy!
 
 __OR__
 
-After having a MySQL database called __Saltan__ created just run - 
+After having a MySQL database called __Saltan__ created just run -
 ```sh
 python setup.py
 ```
+Powered by Django.

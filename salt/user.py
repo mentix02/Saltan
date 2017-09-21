@@ -23,14 +23,14 @@ class LoginView(View):
 
 	def get(self, request):
 		if request.user.is_authenticated():
-			return render(request, 'salt/index.html', {})
+			return redirect('salt:index')
 		else:
 			return render(request, self.template_name, {})
 
 	def post(self, request):
 		username = request.POST['username']
 		password = request.POST['password']
-		
+
 		user = authenticate(username=username, password=password)
 		if user:
 			if user.is_active:

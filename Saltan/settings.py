@@ -52,7 +52,7 @@ WSGI_APPLICATION = 'Saltan.wsgi.application'
 DATABASES = {
 	'default': {
 		'ENGINE': 'django.db.backends.mysql',
-		'NAME': "Saltan",
+		'NAME': 'saltan',
 		'USER': 'root',
 		'PASSWORD': 'toor',
 		'HOST': '',

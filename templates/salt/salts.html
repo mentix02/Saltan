@@ -23,7 +23,8 @@
 						<div class="caption">
 							<h4><a href="{% url 'salt:detail' salt.pk %}">{{ salt.title|title }}</a>
 							<br><small>By <a href="{% url 'salt:person' salt.creator.user.username %}">{{ salt.creator.user.username }}</a></small></h4>
-							<p>{{ salt.description|truncatewords:19 }} &nbsp;<small><a href="{% url 'salt:delete_salt' salt.pk %}"><span data-toggle="tooltip" data-placement="top" title="Delete Salt" id="point_me" class="glyphicon glyphicon-trash text-danger"></span></small></p>
+							<p>{{ salt.description|truncatewords:19 }} &nbsp;<small>
+								<a href="{% url 'salt:delete_salt' salt.pk %}" id="delete_salt"><span data-toggle="tooltip" data-placement="top" title="Delete Salt" id="point_me" class="glyphicon glyphicon-trash text-danger"></span></a></small></p>
 						</div>
 					</div>
 				</div>

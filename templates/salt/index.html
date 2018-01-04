@@ -12,7 +12,7 @@
 						</a>
 						<div class="caption">
 							<h4><a href="{% url 'salt:detail' salt.pk %}">{{ salt.title|title }}</a><br><small>By <a href="{% url 'salt:person' salt.creator.user.username %}">{{ salt.creator.user.username }}</a></small></h4>
-							<p>{{ salt.timestamp|date }} | {{ salt.timestamp|time }}</p>
+							<p>{{ salt.timestamp }}</p>
 							<p>{{ salt.description|truncatewords:19 }}</p>
 						</div>
 					</div>

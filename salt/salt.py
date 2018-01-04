@@ -1,5 +1,5 @@
 from .models import Salt, Profile, Comment
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import View, DeleteView
 from django.urls import reverse_lazy
 from django.http import HttpResponseRedirect
@@ -96,3 +96,13 @@ class DeleteSalt(DeleteView):
 	model = Salt
 	success_url = reverse_lazy('salt:salts')
 	# return HttpResponseRedirect('/salts/')
+
+def delete_salt(request, pk):
+	user = request.user
+	salt = get_object_or_404(Salt, pk=pk)
+
+	if salt.creator.user == user:
+		salt.delete()
+		return redirect('salt:salts')
+	else:
+		return redirect('salt:salts')

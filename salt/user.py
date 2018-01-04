@@ -4,6 +4,7 @@ from django.views.generic.list import ListView
 from django.http import Http404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
+from django.core.exceptions import ObjectDoesNotExist
 from django.core.mail import send_mail
 from django.conf import settings
 from .models import Profile
@@ -32,14 +33,19 @@ class LoginView(View):
 		password = request.POST['password']
 
 		user = authenticate(username=username, password=password)
-		if user:
-			if user.is_active:
-				login(request, user)
-				return redirect('salt:index')
-			else:
-				return render(request, self.template_name, {'error': "Sorry! User isn't active!"})
+
+		print(user)
+
+		if user is not None:
+			login(request, user)
+			return redirect('salt:index')
 		else:
-			return render(request, self.template_name, {'error': "Invalid login!"})
+			try:
+				user = User.objects.get(username=username)
+				if user.is_active == False:
+					return render(request, self.template_name, {'error': "Account is deactivated"})
+			except ObjectDoesNotExist:
+				return render(request, self.template_name, {'error': "Invalid login"})
 
 
 class RegisterView(View):

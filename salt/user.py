@@ -23,7 +23,7 @@ class LoginView(View):
 	template_name = 'visitor/login.html'
 
 	def get(self, request):
-		if request.user.is_authenticated():
+		if request.user.is_authenticated:
 			return redirect('salt:index')
 		else:
 			return render(request, self.template_name, {})
@@ -52,7 +52,7 @@ class RegisterView(View):
 	template_name = 'visitor/register.html'
 
 	def get(self, request):
-		if request.user.is_authenticated():
+		if request.user.is_authenticated:
 			return render(request, 'salt/index.html', {})
 		else:
 			return render(request, self.template_name, {})

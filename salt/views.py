@@ -5,7 +5,7 @@ from .models import Salt
 
 
 def index(request):
-	if not request.user.is_authenticated():
+	if not request.user.is_authenticated:
 		return redirect('salt:login')
 	else:
 		the_salts = Salt.objects.all()
